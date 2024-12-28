@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Read Aloud API
+  version: 1.0.0
+  description: Endpoints to generate audio narration for posts.
+ 
+paths:
+  /posts/{postId}/readAloud:
+    post:
+      summary: Generate Audio Narration
+      description: Generate an audio narration for a specific post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Audio narration generated successfully.

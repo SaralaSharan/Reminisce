@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Comments API
+  version: 1.0.0
+  description: Endpoints to manage comments on posts.
+
+paths:
+  /posts/{postId}/comments:
+    get:
+      summary: Get Comments
+      description: Retrieve all comments for a specific post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of comments.
+
+    post:
+      summary: Add Comment
+      description: Add a comment to a post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        '201':
+          description: Comment added successfully.
+
+  /comments/{commentId}:
+    delete:
+      summary: Delete Comment
+      description: Delete a specific comment by ID.
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Comment deleted successfully.

@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  title: Likes API
+  version: 1.0.0
+  description: Endpoints to handle likes on posts.
+ 
+paths:
+  /posts/{postId}/like:
+    post:
+      summary: Like a Post
+      description: Like a specific post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Post liked successfully.
+ 
+  /posts/{postId}/unlike:
+    delete:
+      summary: Unlike a Post
+      description: Remove a like from a specific post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Like removed successfully.

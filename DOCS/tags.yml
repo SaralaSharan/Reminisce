@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Tags API
+  version: 1.0.0
+  description: Endpoints for managing tags.
+ 
+paths:
+  /tags:
+    get:
+      summary: Get All Tags
+      description: Retrieve a list of all tags.
+      responses:
+        '200':
+          description: List of tags retrieved successfully.
+ 
+    post:
+      summary: Create a Tag
+      description: Add a new tag to the system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Tag created successfully.

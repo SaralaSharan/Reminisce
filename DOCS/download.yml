@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Download Post API
+  version: 1.0.0
+  description: Endpoints to download posts in PDF format.
+ 
+paths:
+  /posts/{postId}/download:
+    post:
+      summary: Download Post as PDF
+      description: Download a specific post in PDF format.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Post downloaded successfully.

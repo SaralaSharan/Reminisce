@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: User Profile API
+  version: 1.0.0
+  description: Endpoints for managing user profiles.
+ 
+paths:
+  /profile:
+    get:
+      summary: Get Profile
+      description: Retrieve the authenticated user's profile.
+      responses:
+        '200':
+          description: User profile retrieved successfully.
+ 
+    put:
+      summary: Update Profile
+      description: Update the authenticated user's profile.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                bio:
+                  type: string
+                profilePicture:
+                  type: string
+      responses:
+        '200':
+          description: User profile updated successfully.
+ 
+  /profile/{userId}:
+    delete:
+      summary: Delete Profile
+      description: Delete a specific user profile by ID.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User profile deleted successfully.

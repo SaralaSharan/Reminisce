@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Search API
+  version: 1.0.0
+  description: Endpoints for search functionality.
+
+paths:
+  /search/posts:
+    get:
+      summary: Search Posts
+      description: Search posts by title or tags.
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of posts matching the search criteria.

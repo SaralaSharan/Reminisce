@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Authentication API
+  version: 1.0.0
+  description: Endpoints for user login, signup, and token-based authentication.
+
+paths:
+  /auth/signup:
+    post:
+      summary: User Signup
+      description: Create a new user account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User created successfully.
+
+  /auth/login:
+    post:
+      summary: User Login
+      description: Authenticate a user and return a token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Token generated successfully.
+
+  /auth/refresh:
+    post:
+      summary: Refresh Token
+      description: Generate a new token using the refresh token.
+      responses:
+        '200':
+          description: Token refreshed successfully.
